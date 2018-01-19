@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Sampler</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+		<script type="text/javascript" src="js/NexusUI.js"></script>
+		<script type="text/javascript" src="js/Tone.js"></script>
+        <script>
+            var sampler = new Tone.Player("stockkick.wav", function() {
+                console.log("sample loaded");
+            });
+            var sampler1 = new Tone.Player("Dubstepsnare1.wav", function() {
+                console.log("sample 1 loaded");
+            });
+            sampler.toMaster();
+            sampler1.toMaster();
+        </script>
+    </head>
+    <body>
+        <div>
+            <script>
+                var button = new Nexus.Button( {
+                    'mode': 'impulse'
+                });
+                button.on('change', function(state) {
+                    if(state==true) {
+                        console.log("true");
+                        sampler.start();
+                    } else {
+                        console.log("false");
+                    }
+                });
+                var button1 = new Nexus.Button( {
+                    'mode': 'impulse'
+                });
+                button1.on('change', function(state) {
+                    if(state==true) {
+                        console.log("true1");
+                        sampler1.start();
+                    } else {
+                        console.log("false1");
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>
