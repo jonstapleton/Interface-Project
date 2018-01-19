@@ -1,0 +1,17 @@
+[nexus-ui] {
+  width:5000px;
+  height:5000px;
+}
+#freq {
+    display: inline-block;
+}
+#volume {
+    display: inline-block;
+}
+#mod {
+    display: inline-block;
+}
+
+h1 {
+    font-family: 'Helvetica';
+}

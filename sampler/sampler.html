@@ -17,31 +17,33 @@
         </script>
     </head>
     <body>
-        <div>
-            <script>
-                var button = new Nexus.Button( {
-                    'mode': 'impulse'
-                });
-                button.on('change', function(state) {
-                    if(state==true) {
-                        console.log("true");
-                        sampler.start();
-                    } else {
-                        console.log("false");
-                    }
-                });
-                var button1 = new Nexus.Button( {
-                    'mode': 'impulse'
-                });
-                button1.on('change', function(state) {
-                    if(state==true) {
-                        console.log("true1");
-                        sampler1.start();
-                    } else {
-                        console.log("false1");
-                    }
-                });
-            </script>
+        <h1>
+            Sampler, First Try
+        </h1>
+        <div id="synth"> 
+            <div nexus-ui="button" id="freq"></div>
+            <div nexus-ui="button" id="volume"></div>
+            <div nexus-ui="button" id="mod"></div>
         </div>
+        <script>
+            var synth = new Nexus.Rack("#synth");
+
+            synth.freq.mode = 'impulse'
+            synth.volume.mode = 'impulse'
+            synth.mod.mode = 'impulse'
+            synth.colorize("accent","#ff0")
+            synth.colorize("fill","#4B0082")
+
+            synth.freq.on('change',function(data) {
+                if(data==true) {
+                    sampler.start();
+                }
+            });
+            synth.volume.on('change', function(data1) {
+                if(data1==true) {
+                    sampler1.start();
+                }
+            });
+        </script>
     </body>
 </html>
