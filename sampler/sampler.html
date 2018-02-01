@@ -5,16 +5,7 @@
         <link rel="stylesheet" type="text/css" href="main.css">
 		<script type="text/javascript" src="js/NexusUI.js"></script>
 		<script type="text/javascript" src="js/Tone.js"></script>
-        <script>
-            var sampler = new Tone.Player("stockkick.wav", function() {
-                console.log("sample loaded");
-            });
-            var sampler1 = new Tone.Player("Dubstepsnare1.wav", function() {
-                console.log("sample 1 loaded");
-            });
-            sampler.toMaster();
-            sampler1.toMaster();
-        </script>
+        <script src="js/StartAudioContext.js"></script>
     </head>
     <body>
         <h1>
@@ -25,25 +16,6 @@
             <div nexus-ui="button" id="volume"></div>
             <div nexus-ui="button" id="mod"></div>
         </div>
-        <script>
-            var synth = new Nexus.Rack("#synth");
-
-            synth.freq.mode = 'impulse'
-            synth.volume.mode = 'impulse'
-            synth.mod.mode = 'impulse'
-            synth.colorize("accent","#ff0")
-            synth.colorize("fill","#4B0082")
-
-            synth.freq.on('change',function(data) {
-                if(data==true) {
-                    sampler.start();
-                }
-            });
-            synth.volume.on('change', function(data1) {
-                if(data1==true) {
-                    sampler1.start();
-                }
-            });
-        </script>
+        <script src="js/PlaySample.js"></script>
     </body>
 </html>
